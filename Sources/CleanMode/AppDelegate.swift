@@ -3,6 +3,7 @@ import AppKit
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let lock = LockController()
     private let onboarding = OnboardingController()
+    private let donation = DonationController()
     private var allowTerminate = false
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -12,7 +13,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
 
-        lock.onFinish = { [weak self] in self?.quit() }
+        lock.onFinish = { [weak self] reason in self?.sessionFinished(reason) }
         onboarding.onReady = { [weak self] in self?.startLock() }
         onboarding.onCancel = { [weak self] in self?.quit() }
 
@@ -33,6 +34,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if !lock.start() {
             onboarding.show()
         }
+    }
+
+    /// Al terminar la limpieza: si toca, muestra el recordatorio de donación (una ventana pequeña y
+    /// descartable) antes de salir. Nunca aparece durante el bloqueo ni tras un cierre automático.
+    private func sessionFinished(_ reason: LockController.ExitReason) {
+        let remind = DonationReminder.registerSession(userInitiated: reason != .timeout)
+        guard remind else { quit(); return }
+        donation.onDismiss = { [weak self] in self?.quit() }
+        donation.show()
     }
 
     private func quit() {

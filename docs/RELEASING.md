@@ -1,6 +1,6 @@
 # Releasing
 
-How to publish a new version. Right now releases are **ad hoc signed and not notarized**, so users see a Gatekeeper warning (documented in the README). The notarization steps below remove it, but need a paid Apple Developer account.
+How to publish a new version. Right now releases are **universal (arm64 + x86_64), ad hoc signed and not notarized**, so users see a Gatekeeper warning and have to re-grant the Accessibility permission after each update (both documented in the README and in `.github/release-notice.md`, which becomes the release description). The notarization steps below remove it, but need a paid Apple Developer account.
 
 ## 1. Prepare
 
@@ -62,4 +62,4 @@ end
 
 ## Placeholders to replace
 
-Search the repo for `YOUR_GITHUB_USER` (README, this file) and replace it with the real GitHub user or organization once the repository exists.
+Search the repo for `YOUR_GITHUB_USER` (README, this file, `.github/release-notice.md`, issue template config) and replace it with the real GitHub user or organization once the repository exists.

@@ -8,6 +8,21 @@ enum Config {
     /// Si pasan más de estos segundos entre dos ⌘Q, el conteo vuelve a cero.
     static let quitDebounce: TimeInterval = 1.5
     static let defaultTimeoutMinutes: Double = 15
+    /// Enlace de donación (PayPal).
+    static let donationURL = "https://www.paypal.me/dannegm"
+
+    /// Cada cuántas limpiezas (terminadas por el usuario) se muestra el recordatorio de donación.
+    /// 0 lo desactiva. Se cambia con `defaults write im.dnn.cleanmode donationReminderEvery -int N`
+    /// o, para probar, con el argumento `--donation-every=N`.
+    static var donationReminderEvery: Int {
+        var n = 10
+        if let v = UserDefaults.standard.object(forKey: "donationReminderEvery") as? NSNumber { n = v.intValue }
+        for arg in CommandLine.arguments where arg.hasPrefix("--donation-every=") {
+            if let v = Int(arg.dropFirst("--donation-every=".count)) { n = v }
+        }
+        return n
+    }
+
     /// Factor de escala global de la UI del overlay.
     static let uiScale: CGFloat = 1.15
 

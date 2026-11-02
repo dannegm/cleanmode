@@ -1,17 +1,38 @@
 #!/bin/bash
 # Compila el paquete y genera build/CleanMode.app listo para abrir.
+# Por defecto genera un binario universal (arm64 + x86_64); NATIVE_ONLY=1 compila solo la arquitectura de este Mac.
 # CODESIGN_IDENTITY="Nombre del certificado" para firmar con un certificado propio
 # (así el permiso de Accesibilidad sobrevive entre recompilaciones). Por defecto: firma ad hoc.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-swift build -c release
-BIN="$(swift build -c release --show-bin-path)/CleanMode"
-
 APP="build/CleanMode.app"
+BINARY="$(mktemp)"
+
+# Primero se compila y solo si sale bien se arma el .app (así un fallo no deja un .app vacío).
+if [ "${NATIVE_ONLY:-0}" = "1" ]; then
+    # Build rápido solo para la arquitectura de este Mac (desarrollo).
+    swift build -c release
+    cp "$(swift build -c release --show-bin-path)/CleanMode" "$BINARY"
+else
+    # Binario universal: Apple Silicon (arm64) + Intel (x86_64). Cada arquitectura usa su propia
+    # carpeta de compilación: SwiftPM comparte una base de datos por carpeta y alternar
+    # arquitecturas en la misma la corrompe ("command ... not registered").
+    for arch in arm64 x86_64; do
+        swift build -c release --arch "$arch" --scratch-path ".build-universal/$arch"
+    done
+    lipo -create \
+        "$(swift build -c release --arch arm64 --scratch-path .build-universal/arm64 --show-bin-path)/CleanMode" \
+        "$(swift build -c release --arch x86_64 --scratch-path .build-universal/x86_64 --show-bin-path)/CleanMode" \
+        -output "$BINARY"
+fi
+echo "Arquitecturas: $(lipo -archs "$BINARY")"
+
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
-cp "$BIN" "$APP/Contents/MacOS/CleanMode"
+cp "$BINARY" "$APP/Contents/MacOS/CleanMode"
+chmod +x "$APP/Contents/MacOS/CleanMode"
+rm -f "$BINARY"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 cp Resources/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 

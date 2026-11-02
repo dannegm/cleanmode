@@ -10,7 +10,7 @@ VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' Resour
 ZIP="build/CleanMode-$VERSION.zip"
 
 rm -f "$ZIP" "$ZIP.sha256"
-ditto -c -k --keepParent build/CleanMode.app "$ZIP"
+ditto -c -k --keepParent --norsrc --noextattr --noqtn build/CleanMode.app "$ZIP"
 (cd build && shasum -a 256 "CleanMode-$VERSION.zip" > "CleanMode-$VERSION.zip.sha256")
 
 echo "Listo: $PWD/$ZIP"

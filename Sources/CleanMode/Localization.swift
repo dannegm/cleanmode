@@ -70,6 +70,11 @@ enum L10n {
         "onb.hint": "Already on? Remove it with − and add it again with +.",
         "onb.ready": "All set",
         "onb.starting": "Starting cleaning mode…",
+        "don.title": "Enjoying Clean Mode?",
+        "don.body": "It's free and open source. If it saved you from a stray keystroke, consider supporting its development.",
+        "don.donate": "Donate with PayPal",
+        "don.later": "Maybe later",
+        "don.never": "Don't remind me again",
     ]
 
     private static let es: [String: String] = [
@@ -91,6 +96,11 @@ enum L10n {
         "onb.hint": "¿Ya aparece activado? Quítalo con − y vuelve a agregarlo con +.",
         "onb.ready": "Todo listo",
         "onb.starting": "Iniciando el modo limpieza…",
+        "don.title": "¿Te gusta Clean Mode?",
+        "don.body": "Es gratis y de código abierto. Si te evitó alguna tecla accidental, considera apoyar su desarrollo.",
+        "don.donate": "Donar con PayPal",
+        "don.later": "Quizás después",
+        "don.never": "No volver a recordármelo",
     ]
 
     private static let zh: [String: String] = [
@@ -112,6 +122,11 @@ enum L10n {
         "onb.hint": "已经打开了？请用 − 移除，再用 + 重新添加。",
         "onb.ready": "一切就绪",
         "onb.starting": "正在启动清洁模式…",
+        "don.title": "喜欢 Clean Mode 吗？",
+        "don.body": "它免费且开源。如果它帮你避免了误触按键，欢迎支持它的开发。",
+        "don.donate": "通过 PayPal 捐赠",
+        "don.later": "以后再说",
+        "don.never": "不再提醒",
     ]
 
     private static let hi: [String: String] = [
@@ -133,6 +148,11 @@ enum L10n {
         "onb.hint": "पहले से चालू है? − से हटाएँ और + से दोबारा जोड़ें।",
         "onb.ready": "सब तैयार है",
         "onb.starting": "सफ़ाई मोड शुरू हो रहा है…",
+        "don.title": "क्या आपको Clean Mode पसंद आ रहा है?",
+        "don.body": "यह मुफ़्त और ओपन सोर्स है। अगर इसने आपको गलती से कोई कुंजी दबने से बचाया, तो इसके विकास में सहयोग करने पर विचार करें।",
+        "don.donate": "PayPal से दान करें",
+        "don.later": "शायद बाद में",
+        "don.never": "दोबारा याद न दिलाएँ",
     ]
 
     private static let ar: [String: String] = [
@@ -155,6 +175,11 @@ enum L10n {
         "onb.hint": "مفعّل بالفعل؟ أزله بالزر − ثم أضفه مجددًا بالزر +.",
         "onb.ready": "كل شيء جاهز",
         "onb.starting": "جارٍ بدء وضع التنظيف…",
+        "don.title": "هل يعجبك Clean Mode؟",
+        "don.body": "التطبيق مجاني ومفتوح المصدر. إن جنّبك ضغطة مفتاح بالخطأ، ففكّر في دعم تطويره.",
+        "don.donate": "تبرّع عبر PayPal",
+        "don.later": "ربما لاحقًا",
+        "don.never": "لا تذكّرني مجددًا",
     ]
 
     private static let fr: [String: String] = [
@@ -176,6 +201,11 @@ enum L10n {
         "onb.hint": "Déjà activé ? Retirez-le avec − et ajoutez-le de nouveau avec +.",
         "onb.ready": "Tout est prêt",
         "onb.starting": "Démarrage du mode nettoyage…",
+        "don.title": "Clean Mode vous plaît ?",
+        "don.body": "L'app est gratuite et open source. Si elle vous a évité une frappe accidentelle, pensez à soutenir son développement.",
+        "don.donate": "Faire un don avec PayPal",
+        "don.later": "Peut-être plus tard",
+        "don.never": "Ne plus me le rappeler",
     ]
 
     private static let pt: [String: String] = [
@@ -197,6 +227,11 @@ enum L10n {
         "onb.hint": "Já está ativado? Remova com − e adicione novamente com +.",
         "onb.ready": "Tudo pronto",
         "onb.starting": "Iniciando o modo de limpeza…",
+        "don.title": "Gostando do Clean Mode?",
+        "don.body": "É gratuito e de código aberto. Se ele evitou uma tecla acidental, considere apoiar o desenvolvimento.",
+        "don.donate": "Doar com PayPal",
+        "don.later": "Talvez depois",
+        "don.never": "Não lembrar novamente",
     ]
 
     private static let ru: [String: String] = [
@@ -218,6 +253,11 @@ enum L10n {
         "onb.hint": "Уже включено? Удалите кнопкой − и добавьте снова кнопкой +.",
         "onb.ready": "Всё готово",
         "onb.starting": "Запуск режима очистки…",
+        "don.title": "Нравится Clean Mode?",
+        "don.body": "Приложение бесплатное и с открытым кодом. Если оно уберегло вас от случайного нажатия клавиши, поддержите его разработку.",
+        "don.donate": "Пожертвовать через PayPal",
+        "don.later": "Может быть, позже",
+        "don.never": "Больше не напоминать",
     ]
 
     private static let bn: [String: String] = [
@@ -239,6 +279,11 @@ enum L10n {
         "onb.hint": "আগে থেকেই চালু? − দিয়ে সরিয়ে + দিয়ে আবার যোগ করুন।",
         "onb.ready": "সব প্রস্তুত",
         "onb.starting": "পরিষ্কার মোড শুরু হচ্ছে…",
+        "don.title": "Clean Mode কি ভালো লাগছে?",
+        "don.body": "এটি বিনামূল্যে ও ওপেন সোর্স। ভুলবশত কী চাপা থেকে বাঁচিয়ে থাকলে, এর উন্নয়নে সহায়তা করার কথা ভাবুন।",
+        "don.donate": "PayPal-এ অনুদান দিন",
+        "don.later": "পরে হয়তো",
+        "don.never": "আর মনে করাবেন না",
     ]
 
     private static let ja: [String: String] = [
@@ -260,6 +305,11 @@ enum L10n {
         "onb.hint": "すでにオンですか？ − で削除し、+ でもう一度追加してください。",
         "onb.ready": "準備完了",
         "onb.starting": "クリーニングモードを開始しています…",
+        "don.title": "Clean Mode はいかがですか？",
+        "don.body": "無料のオープンソースです。うっかりキーを押してしまうのを防げたなら、開発を支援していただけるとうれしいです。",
+        "don.donate": "PayPal で寄付する",
+        "don.later": "あとで",
+        "don.never": "今後は表示しない",
     ]
 
     private static let de: [String: String] = [
@@ -281,6 +331,11 @@ enum L10n {
         "onb.hint": "Schon aktiviert? Entferne es mit − und füge es mit + erneut hinzu.",
         "onb.ready": "Alles bereit",
         "onb.starting": "Reinigungsmodus wird gestartet …",
+        "don.title": "Gefällt dir Clean Mode?",
+        "don.body": "Es ist kostenlos und Open Source. Wenn es dir einen versehentlichen Tastendruck erspart hat, unterstütze gern die Entwicklung.",
+        "don.donate": "Mit PayPal spenden",
+        "don.later": "Vielleicht später",
+        "don.never": "Nicht mehr erinnern",
     ]
 
     private static let it: [String: String] = [
@@ -302,6 +357,11 @@ enum L10n {
         "onb.hint": "Già attivo? Rimuovilo con − e aggiungilo di nuovo con +.",
         "onb.ready": "Tutto pronto",
         "onb.starting": "Avvio della modalità pulizia…",
+        "don.title": "Ti piace Clean Mode?",
+        "don.body": "È gratuita e open source. Se ti ha evitato un tasto premuto per sbaglio, considera di sostenerne lo sviluppo.",
+        "don.donate": "Dona con PayPal",
+        "don.later": "Forse più tardi",
+        "don.never": "Non ricordarmelo più",
     ]
 
     private static let ko: [String: String] = [
@@ -323,5 +383,10 @@ enum L10n {
         "onb.hint": "이미 켜져 있나요? −로 제거한 뒤 +로 다시 추가하세요.",
         "onb.ready": "준비 완료",
         "onb.starting": "청소 모드를 시작하는 중…",
+        "don.title": "Clean Mode가 마음에 드세요?",
+        "don.body": "무료 오픈소스예요. 실수로 키를 누르는 일을 막아 드렸다면 개발을 후원해 주세요.",
+        "don.donate": "PayPal로 후원하기",
+        "don.later": "나중에",
+        "don.never": "다시 알리지 않기",
     ]
 }

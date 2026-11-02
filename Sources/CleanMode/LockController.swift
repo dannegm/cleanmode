@@ -10,7 +10,10 @@ final class OverlayWindow: NSWindow {
 /// Orquesta el bloqueo: ventanas, teclado, cursor, opciones de presentación,
 /// anti-suspensión y salidas (botón, ⌘Q x3, timeout).
 final class LockController {
-    var onFinish: (() -> Void)?
+    /// Cómo terminó la sesión (el recordatorio de donación solo aparece si el usuario salió por sí mismo).
+    enum ExitReason { case button, keyboard, timeout }
+
+    var onFinish: ((ExitReason) -> Void)?
 
     private let model = LockModel()
     private let keyboard = KeyboardBlocker()
@@ -28,7 +31,7 @@ final class LockController {
             self?.model.quitPresses = count
             self?.model.quitPulse += 1
         }
-        keyboard.onQuitTriggered = { [weak self] in self?.unlock() }
+        keyboard.onQuitTriggered = { [weak self] in self?.unlock(reason: .keyboard) }
         guard keyboard.start() else { return false }
         locked = true
 
@@ -50,7 +53,7 @@ final class LockController {
         return true
     }
 
-    func unlock() {
+    func unlock(reason: ExitReason) {
         guard locked else { return }
         locked = false
 
@@ -64,7 +67,7 @@ final class LockController {
         CGDisplayShowCursor(CGMainDisplayID())
         NSCursor.unhide()
         closeWindows()
-        onFinish?()
+        onFinish?(reason)
     }
 
     // MARK: - Ventanas
@@ -111,7 +114,7 @@ final class LockController {
         container.wantsLayer = true
 
         let host = NSHostingView(rootView: OverlayView(
-            model: model, showsContent: showsContent, onExit: { [weak self] in self?.unlock() }
+            model: model, showsContent: showsContent, onExit: { [weak self] in self?.unlock(reason: .button) }
         ))
         host.frame = container.bounds
         host.autoresizingMask = [.width, .height]
@@ -149,7 +152,7 @@ final class LockController {
         guard let deadline else { return }
         let remaining = Int(ceil(deadline.timeIntervalSinceNow))
         if remaining <= 0 {
-            unlock()
+            unlock(reason: .timeout)
         } else {
             model.remainingSeconds = remaining
         }

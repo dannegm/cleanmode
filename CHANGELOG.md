@@ -4,6 +4,9 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+- Optional donation reminder (PayPal) after every 10 cleanings ended by the user. Dismissible, with a "Don't remind me again" option; configurable with `donationReminderEvery`.
+
 ## [1.0.0]
 
 ### Added
@@ -14,3 +17,4 @@ All notable changes to this project are documented here. The format follows [Kee
 - Onboarding that explains and verifies the Accessibility permission, then starts the lock automatically.
 - 13 languages (en, es, zh, hi, ar, fr, pt, ru, bn, ja, de, it, ko) chosen from the system language, with right-to-left support.
 - App icon, build and packaging scripts.
+- Universal binary (Apple Silicon + Intel), ad hoc signed.

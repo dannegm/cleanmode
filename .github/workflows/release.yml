@@ -20,4 +20,4 @@ jobs:
         run: |
           gh release create "$GITHUB_REF_NAME" \
             build/CleanMode-*.zip build/CleanMode-*.sha256 \
-            --title "$GITHUB_REF_NAME" --generate-notes
+            --title "$GITHUB_REF_NAME" --notes-file .github/release-notice.md
