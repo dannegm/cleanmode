@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@theme {
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #000;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(91, 141, 239, 0.45);
+}
+
+:focus-visible {
+    outline: 2px solid #8fb0ff;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* Demo del botón "mantener presionado": el relleno blanco avanza y el texto pasa a negro. */
+@keyframes hold-fill {
+    0% {
+        width: 0;
+    }
+    75%,
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes hold-text {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    75%,
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.hold-fill {
+    animation: hold-fill 3.6s linear infinite;
+}
+
+.hold-text {
+    animation: hold-text 3.6s linear infinite;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    animation: fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .hold-fill {
+        animation: none;
+        width: 60%;
+    }
+    .hold-text {
+        animation: none;
+        clip-path: inset(0 40% 0 0);
+    }
+    .fade-up {
+        animation: none;
+    }
+}

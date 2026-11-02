@@ -47,10 +47,10 @@ cask "clean-mode" do
   version "1.0.0"
   sha256 "SHA256_OF_THE_ZIP"
 
-  url "https://github.com/YOUR_GITHUB_USER/cleanmode/releases/download/v#{version}/CleanMode-#{version}.zip"
+  url "https://github.com/dannegm/cleanmode/releases/download/v#{version}/CleanMode-#{version}.zip"
   name "Clean Mode"
   desc "Lock the keyboard and screen while you clean your Mac"
-  homepage "https://github.com/YOUR_GITHUB_USER/cleanmode"
+  homepage "https://github.com/dannegm/cleanmode"
 
   depends_on macos: ">= :ventura"
 
@@ -60,6 +60,20 @@ cask "clean-mode" do
 end
 ```
 
-## Placeholders to replace
+## Landing page (Vercel)
 
-Search the repo for `YOUR_GITHUB_USER` (README, this file, `.github/release-notice.md`, issue template config) and replace it with the real GitHub user or organization once the repository exists.
+The website lives in `landing/` (React + Vite, pnpm) and is deployed on Vercel. Its download button points to `https://github.com/dannegm/cleanmode/releases/latest`, so it never needs updating when you publish a release.
+
+One-time setup:
+
+1. In Vercel: **Add New → Project**, import `dannegm/cleanmode`.
+2. Set **Root Directory** to `landing` (Vercel can't read this from `vercel.json`). The framework (Vite), install command (`pnpm install`), build command and output directory (`dist`) come from `landing/vercel.json`.
+3. Deploy. The site rebuilds on every push; `ignoreCommand` in `vercel.json` skips the build when nothing inside `landing/` changed (for example, Swift-only commits).
+4. Add the domain **`cleanmode.hckr.mx`** under **Settings → Domains**, and create the DNS record Vercel shows for it (for a subdomain, a `CNAME` for `cleanmode` pointing to `cname.vercel-dns.com`). The canonical URL, the Open Graph tags, `robots.txt` and `sitemap.xml` already use this domain.
+
+Notes:
+
+- Commit `landing/pnpm-lock.yaml` (run `pnpm install` once inside `landing/`) so Vercel installs the exact versions.
+- `vercel.json` sets `ENABLE_EXPERIMENTAL_COREPACK=1` so Vercel uses the pnpm version declared in `package.json` (`packageManager`). If you bump pnpm locally, update that field too.
+- If pnpm complains about ignored build scripts, approve them with `pnpm approve-builds`.
+- The domain is hard-coded in `landing/index.html`, `landing/public/robots.txt` and `landing/public/sitemap.xml`. If it ever changes, update those three files. Also set the repository's **Website** field (About → ⚙) on GitHub to `https://cleanmode.hckr.mx`.

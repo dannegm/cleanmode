@@ -10,7 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/YOUR_GITHUB_USER/cleanmode/releases/latest"><strong>⬇️ Download for macOS</strong></a>
+  <a href="https://github.com/dannegm/cleanmode/releases/latest"><strong>⬇️ Download for macOS</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://cleanmode.hckr.mx">Website</a>
   &nbsp;·&nbsp;
   <a href="#build-from-source">Build from source</a>
   &nbsp;·&nbsp;
@@ -85,7 +87,7 @@ Software can't block everything:
 
 ## Install
 
-1. Download `CleanMode-x.y.z.zip` from the [latest release](https://github.com/YOUR_GITHUB_USER/cleanmode/releases/latest) and unzip it.
+1. Download `CleanMode-x.y.z.zip` from the [latest release](https://github.com/dannegm/cleanmode/releases/latest) and unzip it.
 2. Move `CleanMode.app` to `/Applications`.
 3. Open it. On first launch Clean Mode walks you through granting the **Accessibility** permission (macOS requires it to be able to block the keyboard) and starts as soon as it's active.
 
@@ -133,7 +135,7 @@ English, Español, 中文, हिन्दी, العربية (right-to-left), F
 Requirements: macOS 13+, Swift 5.9+ (Xcode or the Command Line Tools). The build is a **universal binary** (Apple Silicon + Intel). Full Xcode is optional but recommended: it's used to compile the app icon catalog (`actool`).
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USER/cleanmode.git
+git clone https://github.com/dannegm/cleanmode.git
 cd cleanmode
 
 ./scripts/build-app.sh        # builds (universal), assembles and signs build/CleanMode.app
@@ -155,6 +157,19 @@ Notes:
 
 > ⚠️ The app takes over your keyboard and screen. Always test with a short `--timeout`.
 
+### Website
+
+The website, live at **[cleanmode.hckr.mx](https://cleanmode.hckr.mx)**, is in [`landing/`](landing) (React + Vite + Tailwind, English and Spanish) and uses pnpm:
+
+```bash
+cd landing
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build      # static site in landing/dist
+```
+
+The repository URL, download link and donation link are in `landing/src/config.js`; texts are in `landing/src/locales/`. Deployment notes: [docs/RELEASING.md](docs/RELEASING.md#landing-page-vercel).
+
 ### Project layout
 
 | Path | What's there |
@@ -166,6 +181,7 @@ Notes:
 | `Sources/CleanMode/Onboarding*.swift`, `Permissions.swift` | Accessibility onboarding and permission checks |
 | `Sources/CleanMode/Localization.swift` | All strings, 13 languages |
 | `scripts/` | Build, icon and packaging scripts |
+| `landing/` | The website (React + Vite + Tailwind, pnpm), deployed on Vercel |
 
 ## Support the project
 

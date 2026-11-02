@@ -13,8 +13,9 @@
   ```
 - **Updates ask for the Accessibility permission again.** Because the signature is ad hoc, macOS treats every new version as a different app. Remove the old "Clean Mode" entry (− button) and turn on the new one.
 - **Verify your download** (optional): `shasum -a 256 -c CleanMode-<version>.zip.sha256`.
+- **Website**: [cleanmode.hckr.mx](https://cleanmode.hckr.mx).
 - **Privacy**: it never logs or sends what you type and makes no network requests. The source is in this repository.
 - The **translations** were not reviewed by native speakers. Corrections are welcome!
 - **Donations**: Clean Mode is free. If it's useful, you can [donate with PayPal](https://www.paypal.me/dannegm). A small, dismissible reminder appears after every 10 cleanings you end yourself (it has a "Don't remind me again" button and can be turned off with `defaults write im.dnn.cleanmode donationReminderEvery -int 0`).
 
-See [CHANGELOG.md](https://github.com/YOUR_GITHUB_USER/cleanmode/blob/main/CHANGELOG.md) for what changed.
+See [CHANGELOG.md](https://github.com/dannegm/cleanmode/blob/main/CHANGELOG.md) for what changed.
