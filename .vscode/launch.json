@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:cleanmode}",
+            "name": "Debug CleanMode",
+            "target": "CleanMode",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug CleanMode"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:cleanmode}",
+            "name": "Release CleanMode",
+            "target": "CleanMode",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release CleanMode"
+        }
+    ]
+}

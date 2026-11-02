@@ -1,0 +1,42 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open the app\n2. …"
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "e.g. 26.0, MacBook Air M2, one external display"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Clean Mode version
+      placeholder: "e.g. 1.0.0, or the commit if built from source"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it?
+      options: [Release download, Built from source, Homebrew]
+  - type: checkboxes
+    id: notes
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the existing issues
+          required: true
