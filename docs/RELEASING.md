@@ -74,6 +74,6 @@ One-time setup:
 Notes:
 
 - Commit `landing/pnpm-lock.yaml` (run `pnpm install` once inside `landing/`) so Vercel installs the exact versions.
-- `vercel.json` sets `ENABLE_EXPERIMENTAL_COREPACK=1` so Vercel uses the pnpm version declared in `package.json` (`packageManager`). If you bump pnpm locally, update that field too.
+- Vercel picks pnpm from `pnpm-lock.yaml` (lockfile version `9.0` works with the pnpm 9/10 it ships), so `vercel.json` does **not** enable corepack. Don't set `ENABLE_EXPERIMENTAL_COREPACK` in the project's environment variables either: it makes Vercel look for `packageManager` at the wrong level and prints *"Could not enable corepack because package.json is missing 'packageManager' property"*. `packageManager` in `landing/package.json` is only for local development.
 - If pnpm complains about ignored build scripts, approve them with `pnpm approve-builds`.
 - The domain is hard-coded in `landing/index.html`, `landing/public/robots.txt` and `landing/public/sitemap.xml`. If it ever changes, update those three files. Also set the repository's **Website** field (About → ⚙) on GitHub to `https://cleanmode.hckr.mx`.

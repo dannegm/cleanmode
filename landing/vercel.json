@@ -5,11 +5,6 @@
     "buildCommand": "pnpm build",
     "outputDirectory": "dist",
     "ignoreCommand": "git diff --quiet HEAD^ HEAD -- .",
-    "build": {
-        "env": {
-            "ENABLE_EXPERIMENTAL_COREPACK": "1"
-        }
-    },
     "headers": [
         {
             "source": "/(.*)",
