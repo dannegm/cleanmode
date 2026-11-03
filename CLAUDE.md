@@ -17,6 +17,8 @@ There are no tests and no linter.
 NATIVE_ONLY=1 ./scripts/build-app.sh
 # Release zip + sha256 (what CI publishes)
 ./scripts/package.sh
+# Bump the version in Info.plist, commit, tag vX.Y.Z and PUSH (the push publishes a release). The user runs this, not Claude.
+scripts/bump.sh --patch   # or --minor / --major; -n = dry run; --no-push = local only
 # Sign with the dev identity so the Accessibility permission survives rebuilds
 CODESIGN_IDENTITY="Apple Development: Daniel Garcia (4754A3GU5N)" ./scripts/build-app.sh
 

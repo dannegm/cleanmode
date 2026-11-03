@@ -4,6 +4,21 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [1.1.1]
+
+### Fixed
+- The app and the release zip reported version `1.0.0` in the 1.1.0 release, because `Info.plist` wasn't bumped. The version is now `1.1.1` (build `2`).
+
+## [1.1.0]
+
+### Changed
+- The lock screen content is larger (UI scale 1.5). On short screens the scale reduces itself so the content, the ⌘Q hint and the footer never overlap (1280×720 uses 1.44).
+- The documentation and the website now explain a key part of the problem: turning the Mac off doesn't help, because it turns right back on with any key press or mouse movement.
+
+### Added
+- Hidden `--render-size=WxH` option for the screenshot renderer (`--render-docs`), to check the layout on smaller screens.
+- Website: donate section, responsive fixes (including the download section on mobile) and Vercel deployment settings.
+
 ## [1.0.0]
 
 ### Added
