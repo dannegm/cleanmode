@@ -54,6 +54,11 @@ struct OverlayView: View {
                 .frame(width: 96 * s, height: 96 * s)
                 .rotationEffect(.degrees(-45))
                 .frame(width: 106 * s, height: 106 * s)
+                // Alineación vertical: inclinada, la escoba deja ~20.4·s de aire arriba dentro de su contenedor,
+                // y las letras del título (altura de mayúscula) empiezan a ~5.2·s del borde del texto.
+                // Se sube la diferencia para que el borde superior de la escoba quede a la altura del título,
+                // y luego se baja 4 pt (ajuste fino pedido a ojo).
+                .offset(y: -15.2 * s + 4)
 
             VStack(alignment: .leading, spacing: 12 * s) {
                 Text(L10n.t("lock.title"))
@@ -63,7 +68,7 @@ struct OverlayView: View {
                     Text(L10n.t("lock.blocked"))
                     Text(L10n.t("lock.tips"))
                 }
-                .font(.system(size: 14 * s))
+                .font(.system(size: 18))   // descripción: 18 pt fijos
                 .fixedSize(horizontal: false, vertical: true)
 
                 HoldButton(
@@ -75,7 +80,8 @@ struct OverlayView: View {
 
                 if let remaining = model.remainingSeconds {
                     Text(L10n.t("lock.autoClose", Self.format(remaining)))
-                        .font(.system(size: 12 * s))
+                        .font(.system(size: 16))   // contador: 16 pt fijos
+                        .opacity(0.7)
                         .monospacedDigit()
                 }
             }
@@ -162,7 +168,7 @@ struct HoldButton: View {
     @State private var holding = false
     @State private var pending: DispatchWorkItem?
 
-    private let s = Config.uiScale
+    private let s = Config.holdButtonScale
     private var width: CGFloat { 280 * s }
     private var height: CGFloat { 48 * s }
     private var shape: RoundedRectangle { RoundedRectangle(cornerRadius: 10 * s, style: .continuous) }

@@ -4,6 +4,11 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Changed
+- Lock screen measurements are now fixed and identical on every screen (the ones calibrated for 1280×720: UI scale 1.44) instead of scaling with the screen height. The hold-to-exit button keeps its own size.
+- The broom icon is vertically aligned with the title text.
+- The description is now 18 pt and the auto-close countdown 16 pt (slightly transparent).
+
 ## [1.1.1]
 
 ### Fixed

@@ -17,7 +17,6 @@ enum DocsRenderer {
                 let parts = arg.dropFirst("--render-size=".count).split(separator: "x").compactMap { Double($0) }
                 if parts.count == 2 { lockSize = CGSize(width: parts[0], height: parts[1]) }
             }
-            Config.uiScaleOverride = min(1.5, lockSize.height / 500)
 
             render(lockScreen, size: lockSize, to: dir.appendingPathComponent("lock.png"))
             render(onboarding(dark: false), size: CGSize(width: 560, height: 680), to: dir.appendingPathComponent("onboarding-light.png"))

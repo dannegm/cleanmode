@@ -43,7 +43,7 @@ struct OnboardingView: View {
 
             VStack(alignment: .leading, spacing: 20) {
                 step(1, L10n.t("onb.step1"))
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 20) {
                     step(2, L10n.t("onb.step2"))
                     appRowPreview
                         .padding(.leading, 30)
@@ -64,6 +64,7 @@ struct OnboardingView: View {
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
                     .frame(width: 260)
+                    .padding(.vertical, 4)   // un poco más alto
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)

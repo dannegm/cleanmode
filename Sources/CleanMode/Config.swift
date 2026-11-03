@@ -1,4 +1,3 @@
-import AppKit
 import Foundation
 
 enum Config {
@@ -24,17 +23,14 @@ enum Config {
         return n
     }
 
-    /// Factor de escala de la UI del overlay: 1.5 por defecto. En pantallas bajas se reduce solo para que
-    /// el contenido, el subtítulo de ⌘Q y el pie quepan sin encimarse (en 1280×720 queda en 1.44).
-    /// Usa la pantalla más baja conectada, porque el contenido puede aparecer en cualquiera.
-    static var uiScale: CGFloat {
-        if let uiScaleOverride { return uiScaleOverride }
-        let lowest = NSScreen.screens.map { $0.frame.height }.min() ?? 900
-        return min(1.5, lowest / 500)
-    }
+    /// Factor de las medidas de la UI del overlay. Es **fijo** y igual en todas las pantallas: son las medidas
+    /// calibradas para 1280×720 (título 30.2 pt, pie 15.8 pt, subtítulo 28.8 pt). La descripción (18 pt) y el contador (16 pt)
+    /// tienen tamaño fijo propio, sin multiplicar por este factor.
+    static let uiScale: CGFloat = 1.44
 
-    /// Solo para generar capturas de la documentación (`--render-docs`).
-    static var uiScaleOverride: CGFloat?
+    /// Escala del botón de mantener presionado. Se quedó en el tamaño que tenía antes de subir el resto de la UI a 1.5
+    /// (280×48 pt a escala 1.15 = unos 322×55 pt).
+    static let holdButtonScale: CGFloat = 1.15
 
     /// Tiempo máximo de bloqueo en segundos; nil = sin límite (minutos <= 0).
     /// Prioridad (de menor a mayor):
