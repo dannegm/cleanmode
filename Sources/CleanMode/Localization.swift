@@ -99,7 +99,7 @@ enum L10n {
         "don.title": "¿Te gusta Clean Mode?",
         "don.body": "Es gratis y de código abierto. Si te evitó alguna tecla accidental, considera apoyar su desarrollo.",
         "don.donate": "Donar con PayPal",
-        "don.later": "Quizás después",
+        "don.later": "Ahorita no, joven",
         "don.never": "No volver a recordármelo",
     ]
 

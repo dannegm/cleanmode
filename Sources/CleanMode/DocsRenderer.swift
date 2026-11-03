@@ -21,6 +21,10 @@ enum DocsRenderer {
             render(lockScreen, size: lockSize, to: dir.appendingPathComponent("lock.png"))
             render(onboarding(dark: false), size: CGSize(width: 560, height: 680), to: dir.appendingPathComponent("onboarding-light.png"))
             render(onboarding(dark: true), size: CGSize(width: 560, height: 680), to: dir.appendingPathComponent("onboarding-dark.png"))
+
+            let donationSize = CGSize(width: DonationView.size.width + 60, height: DonationView.size.height + 60)
+            render(donation(dark: false), size: donationSize, to: dir.appendingPathComponent("donation-light.png"))
+            render(donation(dark: true), size: donationSize, to: dir.appendingPathComponent("donation-dark.png"))
             exit(0)
         }
     }
@@ -54,22 +58,24 @@ enum DocsRenderer {
         return OverlayView(model: model, showsContent: true, onExit: {}, preview: true)
     }
 
-    // MARK: - Onboarding
+    // MARK: - Ventanas (onboarding y donación)
 
+    /// Ventana estilo macOS (sombra solo en la forma, borde y semáforo) alrededor de una vista.
     @MainActor
-    private static func onboarding(dark: Bool) -> some View {
+    private static func appWindow<Content: View>(dark: Bool, size: CGSize, @ViewBuilder content: () -> Content) -> some View {
         let shape = RoundedRectangle(cornerRadius: 14, style: .continuous)
         return ZStack {
             // La sombra va solo en la forma de la ventana (no en su contenido).
             shape
                 .fill(dark ? Color(white: 0.17) : Color(white: 0.96))
                 .shadow(color: Color.black.opacity(0.28), radius: 22, y: 10)
-            OnboardingView(model: PermissionModel(), onOpenSettings: {})
+            content()
                 .clipShape(shape)
             shape.strokeBorder(Color.primary.opacity(0.14), lineWidth: 1)
         }
-        .frame(width: 500, height: 620)
+        .frame(width: size.width, height: size.height)
         .overlay(alignment: .topLeading) {
+            // Semáforo completo, de colores (en la ventana real solo cerrar hace algo).
             HStack(spacing: 8) {
                 Circle().fill(Color(red: 1.0, green: 0.37, blue: 0.34))
                 Circle().fill(Color(red: 1.0, green: 0.74, blue: 0.18))
@@ -82,5 +88,19 @@ enum DocsRenderer {
         }
         .padding(30)
         .environment(\.colorScheme, dark ? .dark : .light)
+    }
+
+    @MainActor
+    private static func onboarding(dark: Bool) -> some View {
+        appWindow(dark: dark, size: CGSize(width: 500, height: 620)) {
+            OnboardingView(model: PermissionModel(), onOpenSettings: {})
+        }
+    }
+
+    @MainActor
+    private static func donation(dark: Bool) -> some View {
+        appWindow(dark: dark, size: DonationView.size) {
+            DonationView(onChoice: { _ in })
+        }
     }
 }

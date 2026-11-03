@@ -24,6 +24,10 @@ final class OnboardingController: NSObject, NSWindowDelegate {
         )
         window.titlebarAppearsTransparent = true
         window.titleVisibility = .hidden
+        // Ventana de aviso: el semáforo se ve completo, pero zoom y minimizar no hacen nada (desactivados); solo cierra.
+        window.standardWindowButton(.zoomButton)?.isEnabled = false
+        window.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        window.collectionBehavior = [.fullScreenNone]
         window.isMovableByWindowBackground = true
         window.isReleasedWhenClosed = false
         window.delegate = self
