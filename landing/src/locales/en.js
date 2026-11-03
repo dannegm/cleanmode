@@ -2,7 +2,7 @@ export default {
     meta: {
         title: "Clean Mode — Lock your Mac's keyboard and screen while you clean it",
         description:
-            'Free, open source macOS app that locks your keyboard, shortcuts and gestures and turns the screen black so you can clean your Mac without touching a thing by accident.',
+            'Free, open source macOS app that locks your keyboard, shortcuts and gestures and turns the screen black, so you can clean your Mac without turning it off (any key press or mouse movement would wake it) and without touching a thing by accident.',
     },
     common: { copy: 'Copy', copied: 'Copied' },
     nav: { features: 'Features', how: 'How it works', faq: 'FAQ', download: 'Download', donate: 'Donate' },
@@ -10,7 +10,7 @@ export default {
         title1: 'Clean your Mac.',
         title2: 'Touch nothing by accident.',
         subtitle:
-            'Clean Mode locks your keyboard, shortcuts and gestures and turns the screen black, so you can wipe everything down without opening apps, changing settings or putting your Mac to sleep.',
+            'Clean Mode locks your keyboard, shortcuts and gestures and turns the screen black, so you can wipe everything down without turning the Mac off (any key press or mouse movement would wake it right back up) and without opening apps or changing settings.',
         download: 'Download for macOS',
         github: 'View on GitHub',
         meta: 'Free & open source · macOS 13+ · Apple Silicon and Intel',
@@ -25,7 +25,11 @@ export default {
             'Change the volume, the brightness or a setting',
             'Put your Mac to sleep or log out',
         ],
-        outro: "The usual workaround is shutting down first. That's slow, and a dark screen hides the dust you're trying to wipe. Clean Mode keeps the screen on and black, so you see exactly where you've cleaned.",
+        noOff: {
+            title: "And you can't just turn it off",
+            text: "Putting the Mac to sleep or turning the display off doesn't help: pressing any key or moving the mouse wakes it right back up. Shutting it down completely is slow and leaves you wiping a dark screen where dust is hard to see.",
+        },
+        outro: "Clean Mode keeps the screen on and black, so you see exactly where you've cleaned.",
     },
     features: {
         title: 'Everything locked. Nothing to worry about.',
@@ -53,7 +57,7 @@ export default {
             {
                 icon: 'awake',
                 title: 'Display stays awake',
-                text: "Your screen won't dim or go to sleep while you're cleaning.",
+                text: 'The display stays on and black, so nothing wakes it up or puts it to sleep while you clean.',
             },
             {
                 icon: 'languages',
@@ -125,6 +129,10 @@ export default {
     faq: {
         title: 'Questions',
         items: [
+            {
+                q: 'Why not just turn the Mac off or put it to sleep?',
+                a: "Because it wakes right back up: any key press or mouse or trackpad movement lights the screen again, and shutting it down completely is slow and leaves you cleaning a dark screen where dust is hard to see. Clean Mode keeps everything locked and the screen on instead.",
+            },
             {
                 q: 'Why does it need the Accessibility permission?',
                 a: "macOS only lets an app intercept the keyboard if you grant it. Clean Mode uses it to discard every key while you clean. It doesn't read or keep what you type.",

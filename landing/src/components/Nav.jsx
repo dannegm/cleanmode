@@ -35,8 +35,8 @@ export default function Nav() {
 
     return (
         <header className="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl">
-            <nav className="mx-auto flex h-14 max-w-6xl items-center gap-6 px-5">
-                <a href="#top" className="flex items-center gap-2.5 font-semibold">
+            <nav className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-5 sm:gap-6">
+                <a href="#top" className="flex items-center gap-2.5 font-semibold whitespace-nowrap">
                     <img src={asset('icon.png')} alt="" className="size-7" />
                     Clean Mode
                 </a>
@@ -49,7 +49,7 @@ export default function Nav() {
                     ))}
                 </div>
 
-                <div className="ml-auto flex items-center gap-3">
+                <div className="ml-auto flex items-center gap-2 sm:gap-3">
                     <LanguageSwitch />
                     <a
                         href={DONATE_URL}

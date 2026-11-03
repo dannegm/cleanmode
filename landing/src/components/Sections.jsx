@@ -18,7 +18,7 @@ export function Problem() {
         <Section title={t.problem.title}>
             <div className="mx-auto max-w-3xl">
                 <p className="text-center text-lg text-white/65">{t.problem.intro}</p>
-                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {t.problem.items.map(item => (
                         <li
                             key={item}
@@ -29,6 +29,10 @@ export function Problem() {
                         </li>
                     ))}
                 </ul>
+                <div className="mt-6 rounded-2xl border border-[#ff6b6b]/30 bg-[#ff6b6b]/10 p-5 sm:p-6">
+                    <h3 className="text-lg font-semibold">{t.problem.noOff.title}</h3>
+                    <p className="mt-2 text-white/70">{t.problem.noOff.text}</p>
+                </div>
                 <p className="mt-8 text-center text-lg text-balance text-white/65">{t.problem.outro}</p>
             </div>
         </Section>
@@ -39,7 +43,7 @@ export function Features() {
     const { t } = useI18n();
     return (
         <Section id="features" title={t.features.title}>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {t.features.items.map(({ icon, title, text }) => {
                     const Icon = featureIcons[icon];
                     return (
@@ -61,7 +65,7 @@ export function HowItWorks() {
     const { lang, t } = useI18n();
     return (
         <Section id="how" title={t.how.title}>
-            <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                 <ol className="space-y-8">
                     {t.how.steps.map((step, i) => (
                         <li key={step.title} className="flex gap-5">
@@ -116,7 +120,7 @@ export function Exits() {
 
     return (
         <Section title={t.exits.title} subtitle={t.exits.subtitle}>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 {cards.map(({ key, icon: Icon, visual }) => (
                     <article key={key} className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                         <div className="flex h-24 items-center justify-center">{visual}</div>
@@ -136,7 +140,7 @@ export function Privacy() {
     const { t } = useI18n();
     return (
         <Section>
-            <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 md:p-12">
+            <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-6 sm:p-8 md:p-12">
                 <span className="inline-flex rounded-xl bg-white/10 p-2.5">
                     <ShieldCheck className="size-6" />
                 </span>

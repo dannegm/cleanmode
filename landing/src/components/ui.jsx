@@ -1,8 +1,8 @@
 export function Section({ id, title, subtitle, children, className = '' }) {
     return (
-        <section id={id} className={`mx-auto max-w-6xl scroll-mt-20 px-5 py-20 md:py-28 ${className}`}>
+        <section id={id} className={`mx-auto max-w-6xl scroll-mt-20 px-5 py-14 sm:py-20 md:py-28 ${className}`}>
             {(title || subtitle) && (
-                <header className="mx-auto mb-12 max-w-2xl text-center">
+                <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
                     {title && <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2>}
                     {subtitle && <p className="mt-4 text-lg text-white/60">{subtitle}</p>}
                 </header>

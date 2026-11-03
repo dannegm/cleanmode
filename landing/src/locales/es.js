@@ -2,7 +2,7 @@ export default {
     meta: {
         title: 'Clean Mode — Bloquea el teclado y la pantalla de tu Mac mientras la limpias',
         description:
-            'App gratuita y de código abierto para macOS que bloquea el teclado, los atajos y los gestos y pone la pantalla en negro, para limpiar tu Mac sin tocar nada por accidente.',
+            'App gratuita y de código abierto para macOS que bloquea el teclado, los atajos y los gestos y pone la pantalla en negro, para limpiar tu Mac sin apagarla (cualquier tecla o movimiento del mouse la despertaría) y sin tocar nada por accidente.',
     },
     common: { copy: 'Copiar', copied: 'Copiado' },
     nav: { features: 'Funciones', how: 'Cómo funciona', faq: 'Preguntas', download: 'Descargar', donate: 'Donar' },
@@ -10,7 +10,7 @@ export default {
         title1: 'Limpia tu Mac.',
         title2: 'Sin tocar nada por accidente.',
         subtitle:
-            'Clean Mode bloquea el teclado, los atajos y los gestos y pone la pantalla en negro, para que limpies todo sin abrir apps, cambiar ajustes ni suspender tu Mac.',
+            'Clean Mode bloquea el teclado, los atajos y los gestos y pone la pantalla en negro, para que limpies todo sin apagar el Mac (cualquier tecla o movimiento del mouse lo despertaría de inmediato) y sin abrir apps ni cambiar ajustes.',
         download: 'Descargar para macOS',
         github: 'Ver en GitHub',
         meta: 'Gratis y de código abierto · macOS 13+ · Apple Silicon e Intel',
@@ -25,7 +25,11 @@ export default {
             'Cambiar el volumen, el brillo o un ajuste',
             'Suspender el Mac o cerrar la sesión',
         ],
-        outro: 'Lo habitual es apagar el Mac antes. Es lento, y una pantalla apagada esconde el polvo que quieres quitar. Clean Mode deja la pantalla encendida y en negro, para que veas exactamente dónde ya limpiaste.',
+        noOff: {
+            title: 'Y tampoco puedes simplemente apagarla',
+            text: 'Suspender el Mac o apagar la pantalla no sirve: al presionar cualquier tecla o mover el mouse, se vuelve a encender. Apagarlo del todo es lento y te deja limpiando una pantalla oscura donde casi no se ve el polvo.',
+        },
+        outro: 'Clean Mode deja la pantalla encendida y en negro, para que veas exactamente dónde ya limpiaste.',
     },
     features: {
         title: 'Todo bloqueado. Nada de qué preocuparte.',
@@ -53,7 +57,7 @@ export default {
             {
                 icon: 'awake',
                 title: 'La pantalla no se apaga',
-                text: 'Tu pantalla no se atenúa ni se suspende mientras limpias.',
+                text: 'La pantalla se queda encendida y en negro, así nada la despierta ni la suspende mientras limpias.',
             },
             {
                 icon: 'languages',
@@ -125,6 +129,10 @@ export default {
     faq: {
         title: 'Preguntas',
         items: [
+            {
+                q: '¿Por qué no simplemente apagar el Mac o suspenderlo?',
+                a: 'Porque se vuelve a encender: cualquier tecla o movimiento del mouse o del trackpad despierta la pantalla, y apagarlo del todo es lento y te deja limpiando una pantalla oscura donde casi no se ve el polvo. Clean Mode mantiene todo bloqueado y la pantalla encendida.',
+            },
             {
                 q: '¿Por qué necesita el permiso de Accesibilidad?',
                 a: 'macOS solo deja que una app intercepte el teclado si le das ese permiso. Clean Mode lo usa para descartar cada tecla mientras limpias. No lee ni guarda lo que escribes.',
