@@ -52,7 +52,7 @@ Cleaning a laptop is surprisingly risky. Wiping the keyboard presses every key; 
 - change volume or brightness, or toggle settings,
 - put the Mac to sleep or log out.
 
-**And you can't just turn it off.** Putting the Mac to sleep or turning the display off doesn't help: pressing any key or moving the mouse or trackpad wakes it right back up. Shutting it down completely is slow and leaves you wiping a dark screen where dust is hard to see.
+**And you can't just turn it off.** It's the obvious fix, but the Mac turns right back on (or wakes up) as soon as you press any key or touch the mouse or trackpad, which is exactly what you do while cleaning. Even if it stayed off, you'd be wiping a dark screen where dust is hard to see.
 
 ## What Clean Mode does
 
@@ -62,7 +62,7 @@ Open it and everything gets locked, while the screen stays on and black so you c
 - **Shortcuts and gestures locked**: Cmd+Tab, Cmd+Q, force quit, Dock, menu bar and most trackpad gestures are disabled.
 - **Black screen on every display**, so smudges and dust are easy to spot.
 - **Custom cursor**: the real cursor is hidden and replaced by a circle with a smooth trail. The mouse keeps working so you can use the exit button.
-- **No need to turn the Mac off.** The display stays on and black while it's active, so nothing can wake it up or put it to sleep by accident.
+- **No need to turn the Mac off.** The display stays on and black while it's active, so there's nothing for a stray key or mouse movement to turn back on.
 - **Hold-to-exit button**: hold it for 3 seconds to leave.
 - **Never get stuck**: three independent ways out (below).
 - **13 languages**, picked automatically from your system.
