@@ -11,7 +11,15 @@ enum DocsRenderer {
             let dir = URL(fileURLWithPath: outputDirectory, isDirectory: true)
             try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
 
-            render(lockScreen, size: CGSize(width: 1440, height: 900), to: dir.appendingPathComponent("lock.png"))
+            // Tamaño de la pantalla simulada (por defecto 1440×900); `--render-size=1280x720` para probar pantallas bajas.
+            var lockSize = CGSize(width: 1440, height: 900)
+            if let arg = CommandLine.arguments.first(where: { $0.hasPrefix("--render-size=") }) {
+                let parts = arg.dropFirst("--render-size=".count).split(separator: "x").compactMap { Double($0) }
+                if parts.count == 2 { lockSize = CGSize(width: parts[0], height: parts[1]) }
+            }
+            Config.uiScaleOverride = min(1.5, lockSize.height / 500)
+
+            render(lockScreen, size: lockSize, to: dir.appendingPathComponent("lock.png"))
             render(onboarding(dark: false), size: CGSize(width: 560, height: 680), to: dir.appendingPathComponent("onboarding-light.png"))
             render(onboarding(dark: true), size: CGSize(width: 560, height: 680), to: dir.appendingPathComponent("onboarding-dark.png"))
             exit(0)
