@@ -30,7 +30,7 @@ enum DonationReminder {
     /// Tras donar: no vuelve a preguntar en un buen rato.
     static func donated() { schedule(after: Config.donationReminderEvery * 5) }
 
-    /// «No volver a recordármelo».
+    /// «No volver a mostrar».
     static func optOut() { defaults.set(true, forKey: optOutKey) }
 
     private static func schedule(after n: Int) {

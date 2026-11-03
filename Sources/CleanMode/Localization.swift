@@ -74,7 +74,7 @@ enum L10n {
         "don.body": "It's free and open source. If it saved you from a stray keystroke, consider supporting its development.",
         "don.donate": "Donate with PayPal",
         "don.later": "Maybe later",
-        "don.never": "Don't remind me again",
+        "don.never": "Don't show again",
     ]
 
     private static let es: [String: String] = [
@@ -100,7 +100,7 @@ enum L10n {
         "don.body": "Es gratis y de código abierto. Si te evitó alguna tecla accidental, considera apoyar su desarrollo.",
         "don.donate": "Donar con PayPal",
         "don.later": "Ahorita no, joven",
-        "don.never": "No volver a recordármelo",
+        "don.never": "No volver a mostrar",
     ]
 
     private static let zh: [String: String] = [
@@ -126,7 +126,7 @@ enum L10n {
         "don.body": "它免费且开源。如果它帮你避免了误触按键，欢迎支持它的开发。",
         "don.donate": "通过 PayPal 捐赠",
         "don.later": "以后再说",
-        "don.never": "不再提醒",
+        "don.never": "不再显示",
     ]
 
     private static let hi: [String: String] = [
@@ -152,7 +152,7 @@ enum L10n {
         "don.body": "यह मुफ़्त और ओपन सोर्स है। अगर इसने आपको गलती से कोई कुंजी दबने से बचाया, तो इसके विकास में सहयोग करने पर विचार करें।",
         "don.donate": "PayPal से दान करें",
         "don.later": "शायद बाद में",
-        "don.never": "दोबारा याद न दिलाएँ",
+        "don.never": "दोबारा न दिखाएँ",
     ]
 
     private static let ar: [String: String] = [
@@ -179,7 +179,7 @@ enum L10n {
         "don.body": "التطبيق مجاني ومفتوح المصدر. إن جنّبك ضغطة مفتاح بالخطأ، ففكّر في دعم تطويره.",
         "don.donate": "تبرّع عبر PayPal",
         "don.later": "ربما لاحقًا",
-        "don.never": "لا تذكّرني مجددًا",
+        "don.never": "لا تعرض مجددًا",
     ]
 
     private static let fr: [String: String] = [
@@ -205,7 +205,7 @@ enum L10n {
         "don.body": "L'app est gratuite et open source. Si elle vous a évité une frappe accidentelle, pensez à soutenir son développement.",
         "don.donate": "Faire un don avec PayPal",
         "don.later": "Peut-être plus tard",
-        "don.never": "Ne plus me le rappeler",
+        "don.never": "Ne plus afficher",
     ]
 
     private static let pt: [String: String] = [
@@ -231,7 +231,7 @@ enum L10n {
         "don.body": "É gratuito e de código aberto. Se ele evitou uma tecla acidental, considere apoiar o desenvolvimento.",
         "don.donate": "Doar com PayPal",
         "don.later": "Talvez depois",
-        "don.never": "Não lembrar novamente",
+        "don.never": "Não mostrar novamente",
     ]
 
     private static let ru: [String: String] = [
@@ -257,7 +257,7 @@ enum L10n {
         "don.body": "Приложение бесплатное и с открытым кодом. Если оно уберегло вас от случайного нажатия клавиши, поддержите его разработку.",
         "don.donate": "Пожертвовать через PayPal",
         "don.later": "Может быть, позже",
-        "don.never": "Больше не напоминать",
+        "don.never": "Больше не показывать",
     ]
 
     private static let bn: [String: String] = [
@@ -283,7 +283,7 @@ enum L10n {
         "don.body": "এটি বিনামূল্যে ও ওপেন সোর্স। ভুলবশত কী চাপা থেকে বাঁচিয়ে থাকলে, এর উন্নয়নে সহায়তা করার কথা ভাবুন।",
         "don.donate": "PayPal-এ অনুদান দিন",
         "don.later": "পরে হয়তো",
-        "don.never": "আর মনে করাবেন না",
+        "don.never": "আর দেখাবেন না",
     ]
 
     private static let ja: [String: String] = [
@@ -335,7 +335,7 @@ enum L10n {
         "don.body": "Es ist kostenlos und Open Source. Wenn es dir einen versehentlichen Tastendruck erspart hat, unterstütze gern die Entwicklung.",
         "don.donate": "Mit PayPal spenden",
         "don.later": "Vielleicht später",
-        "don.never": "Nicht mehr erinnern",
+        "don.never": "Nicht mehr anzeigen",
     ]
 
     private static let it: [String: String] = [
@@ -361,7 +361,7 @@ enum L10n {
         "don.body": "È gratuita e open source. Se ti ha evitato un tasto premuto per sbaglio, considera di sostenerne lo sviluppo.",
         "don.donate": "Dona con PayPal",
         "don.later": "Forse più tardi",
-        "don.never": "Non ricordarmelo più",
+        "don.never": "Non mostrare più",
     ]
 
     private static let ko: [String: String] = [
@@ -387,6 +387,6 @@ enum L10n {
         "don.body": "무료 오픈소스예요. 실수로 키를 누르는 일을 막아 드렸다면 개발을 후원해 주세요.",
         "don.donate": "PayPal로 후원하기",
         "don.later": "나중에",
-        "don.never": "다시 알리지 않기",
+        "don.never": "다시 표시하지 않기",
     ]
 }

@@ -16,6 +16,6 @@
 - **Website**: [cleanmode.hckr.mx](https://cleanmode.hckr.mx).
 - **Privacy**: it never logs or sends what you type and makes no network requests. The source is in this repository.
 - The **translations** were not reviewed by native speakers. Corrections are welcome!
-- **Donations**: Clean Mode is free. If it's useful, you can [donate with PayPal](https://www.paypal.me/dannegm). A small, dismissible reminder appears after every 10 cleanings you end yourself (it has a "Don't remind me again" button and can be turned off with `defaults write im.dnn.cleanmode donationReminderEvery -int 0`).
+- **Donations**: Clean Mode is free. If it's useful, you can [donate with PayPal](https://www.paypal.me/dannegm). A small, dismissible reminder appears after every 10 cleanings you end yourself (it has a "Don't show again" button and can be turned off with `defaults write im.dnn.cleanmode donationReminderEvery -int 0`).
 
 See [CHANGELOG.md](https://github.com/dannegm/cleanmode/blob/main/CHANGELOG.md) for what changed.

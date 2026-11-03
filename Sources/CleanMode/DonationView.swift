@@ -42,11 +42,12 @@ struct DonationView: View {
                 .buttonStyle(PillButtonStyle(kind: .primary))
                 .keyboardShortcut(.defaultAction)
 
-                // Las dos salidas: la misma cápsula, en versión secundaria (más pequeña y sin color). Esc = más tarde.
+                // Jerarquía de tres niveles: donar (principal) > ahorita no (secundario, con relleno suave) > no recordar
+                // (terciario: sin relleno y más discreto, pero legible y con la misma zona de clic). Esc = más tarde.
                 VStack(spacing: 6) {
-                    secondaryButton(L10n.t("don.later"), systemImage: "clock") { onChoice(.later) }
+                    pillButton(L10n.t("don.later"), systemImage: "clock", kind: .secondary) { onChoice(.later) }
                         .keyboardShortcut(.cancelAction)
-                    secondaryButton(L10n.t("don.never"), systemImage: "bell.slash") { onChoice(.never) }
+                    pillButton(L10n.t("don.never"), systemImage: "bell.slash", kind: .tertiary) { onChoice(.never) }
                 }
             }
             .padding(.bottom, 22)
@@ -55,30 +56,31 @@ struct DonationView: View {
         .environment(\.layoutDirection, L10n.isRTL ? .rightToLeft : .leftToRight)
     }
 
-    /// Botón secundario: la misma cápsula, versión pequeña y sin color.
-    private func secondaryButton(_ title: String, systemImage: String, action: @escaping () -> Void) -> some View {
+    /// Botón de salida: la misma cápsula, en versión secundaria (relleno suave) o terciaria (sin relleno, más discreta).
+    private func pillButton(_ title: String, systemImage: String, kind: PillButtonStyle.Kind,
+                            action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack(spacing: 6) {
                 Image(systemName: systemImage)
                 Text(title).lineLimit(1)
             }
-            .font(.system(size: 12, weight: .medium))
+            .font(.system(size: kind == .tertiary ? 11.5 : 12, weight: kind == .tertiary ? .regular : .medium))
         }
-        .buttonStyle(PillButtonStyle(kind: .secondary))
+        .buttonStyle(PillButtonStyle(kind: kind))
     }
 }
 
 /// Cápsula totalmente redondeada que se ajusta a su contenido. Un único estilo para todos los botones de la ventana,
 /// dibujado a mano para que se vea igual en cualquier versión de macOS (y en las capturas).
 struct PillButtonStyle: ButtonStyle {
-    enum Kind { case primary, secondary }
+    enum Kind { case primary, secondary, tertiary }
 
     let kind: Kind
     @Environment(\.isEnabled) private var isEnabled
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundStyle(kind == .primary ? Color.white : Color.primary)
+            .foregroundStyle(foreground)
             .padding(.horizontal, kind == .primary ? 26 : 16)
             .padding(.vertical, kind == .primary ? 11 : 6)
             .background(Capsule().fill(fill(pressed: configuration.isPressed)))
@@ -86,10 +88,19 @@ struct PillButtonStyle: ButtonStyle {
             .opacity(isEnabled ? 1 : 0.5)
     }
 
+    private var foreground: Color {
+        switch kind {
+        case .primary: return Color.white
+        case .secondary: return Color.primary
+        case .tertiary: return Color.primary.opacity(0.68)   // discreto, pero con buen contraste
+        }
+    }
+
     private func fill(pressed: Bool) -> Color {
         switch kind {
         case .primary: return Color.accentColor.opacity(pressed ? 0.78 : 1)
         case .secondary: return Color.primary.opacity(pressed ? 0.20 : 0.10)
+        case .tertiary: return Color.primary.opacity(pressed ? 0.10 : 0)   // sin relleno; al presionar se marca
         }
     }
 }

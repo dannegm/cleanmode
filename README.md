@@ -187,7 +187,7 @@ The repository URL, download link and donation link are in `landing/src/config.j
 
 Clean Mode is free and open source. If it's useful to you, you can [donate with PayPal](https://www.paypal.me/dannegm). It's entirely optional, and thank you!
 
-**About the reminder.** After every 10 cleanings that *you* end (hold button or ⌘Q ×3), the app shows one small window asking if you'd like to donate. It never appears while the lock is active, never after an automatic close, and it has a **"Don't remind me again"** button. Closing the window just postpones it. The only thing stored is a counter on your Mac (the app makes no network requests; the PayPal page opens in your browser only if you click Donate).
+**About the reminder.** After every 10 cleanings that *you* end (hold button or ⌘Q ×3), the app shows one small window asking if you'd like to donate. It never appears while the lock is active, never after an automatic close, and it has a **"Don't show again"** button. Closing the window just postpones it. The only thing stored is a counter on your Mac (the app makes no network requests; the PayPal page opens in your browser only if you click Donate).
 
 ```bash
 # Change how often it appears (0 turns it off completely)
